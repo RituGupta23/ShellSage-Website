@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Shellsage
 
-## Getting Started
+Marketing and documentation website for [ShellSage](https://github.com/RituGupta23/ShellSage) — an AI-powered CLI tool that translates plain English into shell commands.
 
-First, run the development server:
+Built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
+
+## What's on the site
+
+- **Hero** — headline, CTA buttons, and an animated terminal demo
+- **Features** — six key capabilities (plain-English input, multi-OS, risk classification, 4 AI providers, dry/run modes, Go library API)
+- **AI Providers** — Gemini, Claude, OpenAI, and Ollama cards with model info and required env vars
+- **Risk Section** — explanation of the Low / Medium / High classification system
+- **Install Guide** — tabbed instructions for macOS, Linux, Windows, `go install`, and building from source
+- **Usage Guide** — command reference and flag documentation
+- **Download** — links to the latest GitHub release
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm start` | Serve the production build |
+| `npm run lint` | Run ESLint |
 
-## Learn More
+## Tech stack
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js 16](https://nextjs.org) — App Router
+- [React 19](https://react.dev)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) + [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) — loaded via `next/font`
+- TypeScript 5
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+app/
+├── layout.tsx          # Root layout, fonts, metadata
+├── page.tsx            # Page composition
+├── globals.css         # Tailwind base + custom tokens
+└── components/
+    ├── Navbar.tsx
+    ├── Hero.tsx
+    ├── Features.tsx
+    ├── Providers.tsx
+    ├── RiskSection.tsx
+    ├── InstallGuide.tsx
+    ├── GuideSection.tsx
+    ├── Download.tsx
+    ├── Footer.tsx
+    ├── Terminal.tsx     # Animated terminal demo
+    └── CodeBlock.tsx    # Syntax-highlighted code snippets
+```
 
-## Deploy on Vercel
+## Related
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ShellSage CLI](https://github.com/RituGupta23/ShellSage) — the actual tool this site documents
