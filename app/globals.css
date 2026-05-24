@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-ibm, "IBM Plex Sans", sans-serif);
+  --font-mono: var(--font-jbm, "JetBrains Mono", monospace);
+
+  --color-sage: #22c55e;
+  --color-sage-dim: #16a34a;
+  --color-midnight: #0f172a;
+  --color-slate-dark: #1e293b;
+  --color-slate-mid: #334155;
+  --color-ghost: #94a3b8;
+  --color-neon: #06b6d4;
+  --color-amber: #fbbf24;
+  --color-rose: #f87171;
+  --color-pink: #f472b6;
+  --color-lime: #86efac;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: #0f172a;
+    color: #f8fafc;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.04) 2px,
+      rgba(0, 0, 0, 0.04) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .glass {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 20px rgba(34, 197, 94, 0.25);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(34, 197, 94, 0.4);
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(rgba(34, 197, 94, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34, 197, 94, 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black, transparent);
+  }
 }
